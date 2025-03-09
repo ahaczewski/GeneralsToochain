@@ -41,6 +41,25 @@ jobs:
       run: |
         python extract.py
 
+    - name: Patch and Install Visual Studio 6.0
+      run: |
+        patch --strip=0 --input=vs98ent.stf.patch
+        cd extract\VS6CD\SETUP
+        .\ACMSETUP.EXE /T ${{ github.workspace }}\VS98ENT.STF /Q T /K 1111111111 /S ${{ github.workspace }}\extract\VS6CD
+
+        # Now wait for the process to finish running, looking for ACMSETUP.EXE
+        Write-Host "Waiting for ACMSETUP.EXE to complete..."
+        while (Get-Process -Name "ACMSETUP" -ErrorAction SilentlyContinue) {
+            Write-Host "Installation in progress..."
+            Start-Sleep -Seconds 30
+        }
+        Write-Host "Installation completed."
+
+#    - name: Install Service Pack 6
+#      run: |
+#        cd extract\VS6SP6
+#        .\ACMSETUP.EXE /T sp698ent.stf /Q T /S ${{ github.workspace }}\extract\VS6SP6
+
 #    - name: Download Visual Studio 6.0 Enterprise Edition
 #      if: ${{ steps.cache-downloads.outputs.cache-hit != 'true' }}
 #      run: |

@@ -1,0 +1,277 @@
+--- extract/VS6CD/SETUP/VS98ENT.STF.orig	1998-06-27 02:54:00.000000000 +0200
++++ extract/VS6CD/SETUP/VS98ENT.STF	2025-03-09 20:49:50.100298400 +0100
+@@ -495,25 +495,25 @@
+ 	=== Top most VFP specific ETF file (vfp.etf) ===													
+ 													
+ 	STFWIZ	22												
+-481	yes	Microsoft Visual FoxPro 6.0	Setup will allow you to customize which components to install	CustomDlg	483 484 486 485 5182  :  490	VS98Ent.DLL,103			yes	%13				
++481		Microsoft Visual FoxPro 6.0	Setup will allow you to customize which components to install	CustomDlg	483 484 486 485 5182  :  490	VS98Ent.DLL,103			yes	%13				
+ 482	yes	Microsoft Visual FoxPro 6.0	Setup will allow you to customize which components to install	CustomDlg	483 484 486 485 5182 : 490	VS98Ent.DLL,103			yes	%13				
+ 	STFWIZ	23												
+ 483	yes	Microsoft Visual FoxPro	The Visual FoxPro executable(VFP6.EXE) and related/required system files.	Group	500		vital							
+ 													
+ 	STFWIZ	24												
+-484	yes	Wizards and Builders	Tools that assist you in creating objects and completing tasks.	Group	501									
++484		Wizards and Builders	Tools that assist you in creating objects and completing tasks.	Group	501									
+ 													
+ 	STFWIZ	25												
+-485	yes	Professional Applications	Tools to create distributable applications as well as utilities to enhance applications and speed application development.	OptionDlg	487 488 489									
++485		Professional Applications	Tools to create distributable applications as well as utilities to enhance applications and speed application development.	OptionDlg	487 488 489									
+ 													
+ 	STFWIZ	29												
+-486	yes	Microsoft Visual FoxPro Runtime	Files needed by your distributable applications.	Group	504									
++486		Microsoft Visual FoxPro Runtime	Files needed by your distributable applications.	Group	504									
+ 	STFWIZ	26												
+-487	yes	Setup Wizard	This wizard helps to create installable disk sets for developers to distribute their applications.	Group	505									
++487		Setup Wizard	This wizard helps to create installable disk sets for developers to distribute their applications.	Group	505									
+ 	STFWIZ	27												
+-488	yes	API Access	Files that help you access the Visual FoxPro API.	Group	506									
++488		API Access	Files that help you access the Visual FoxPro API.	Group	506									
+ 	STFWIZ	28												
+-489	yes	Utilities	Utilities to enhance application development and automate common programming tasks.	Group	507									
++489		Utilities	Utilities to enhance application development and automate common programming tasks.	Group	507									
+ 													
+ 490				Group	491									
+ 491				Group	492 493 931 495									
+@@ -924,24 +924,24 @@
+ 	=== VB Option Component (vb.etf) ===													
+ 													
+ 	STFWIZ	1												
+-1031	yes	Microsoft Visual Basic 6.0	Installs Microsoft Visual Basic and all required components, including core ActiveX controls.	CustomDlg	1034 1038 1039 1040				yes	%11				
++1031		Microsoft Visual Basic 6.0	Installs Microsoft Visual Basic and all required components, including core ActiveX controls.	CustomDlg	1034 1038 1039 1040				yes	%11				
+ 1032	yes	Microsoft Visual Basic 6.0	Installs Microsoft Visual Basic and all required components, including core ActiveX controls.	CustomDlg	1034 1038 1039 1040				yes	%11				
+ 													
+ 	STFWIZ	40												
+ 1033	yes	ActiveX	Installs additional ActiveX controls.	Group	1451 5521 6376 3431 5581 1521					%M				
+ 	STFWIZ	4												
+-1034	yes	Microsoft Visual Basic Core Files	Installs the core Visual Basic files and core ActiveX controls.	Group	1035 1036 1037					%d				
++1034		Microsoft Visual Basic Core Files	Installs the core Visual Basic files and core ActiveX controls.	Group	1035 1036 1037					%d				
+ 1035	yes			Group	1071 1042 6581 1391 1431 1441 5032 6351 1061 6441  							
+ 1036	yes			Group	1411 6951 1111 1121 1231 1241 6941 1251 									
+ 1037	yes			Group	5161 5151 4581  1048 1049 1050 									
+ 													
+ 	STFWIZ	2												
+-1038	yes	Package & Deployment Wizard	Installs the Package & Deployment Wizard that you use to distribute the applications you create.	Group	1271					%D\PDWizard				
++1038		Package & Deployment Wizard	Installs the Package & Deployment Wizard that you use to distribute the applications you create.	Group	1271					%D\PDWizard				
+ 	STFWIZ	3												
+-1039	yes	Wizards and Templates	Installs a number of Wizards and Templates to increase productivity within the Visual Basic environment.	Group	1291 1301 6361 1461 1491									
++1039		Wizards and Templates	Installs a number of Wizards and Templates to increase productivity within the Visual Basic environment.	Group	1291 1301 6361 1461 1491									
+ 													
+ 	STFWIZ	95												
+-1040	yes	WebClass Designer	Enables development of WebClasses within VB. Requires IIS and Active Server Pages.	Group	1511 									
++1040		WebClass Designer	Enables development of WebClasses within VB. Requires IIS and Active Server Pages.	Group	1511 									
+ 1041		DataAcc for Typ		Group	5977 6191 5978 5979 5980 5974 5975 5982 5986 5996 5997									
+ 													
+ 1042				Group	1043 1044   1045 1046 1047 1051									
+@@ -1164,15 +1164,15 @@
+ 	STFWIZ	76												
+ 1311		Graphics	Installs bitmaps, cursors, icons, metafiles, and video clips for use in your application.	OptionDlg	1312 1313 1314 1315 1316					%10\Graphics				
+ 	STFWIZ	77												
+-1312	yes	Metafiles	Installs over 80 assorted metafiles you can use in your applications.	Group	1321									
++1312		Metafiles	Installs over 80 assorted metafiles you can use in your applications.	Group	1321									
+ 	STFWIZ	78												
+-1313	yes	Bitmaps	Installs nearly 250 assorted bitmaps you can use in your applications.	Group	1331									
++1313		Bitmaps	Installs nearly 250 assorted bitmaps you can use in your applications.	Group	1331									
+ 	STFWIZ	79												
+-1314	yes	Cursors	Installs nearly 100 cursors you can use in your applications.	Group	1351									
++1314		Cursors	Installs nearly 100 cursors you can use in your applications.	Group	1351									
+ 	STFWIZ	80												
+-1315	yes	Icon Library	Installs over 450 icons you can use to enhance your applications.	Group	1361									
++1315		Icon Library	Installs over 450 icons you can use to enhance your applications.	Group	1361									
+ 	STFWIZ	81												
+-1316	yes	Video	Installs a number of video clips (.AVI files) which you can use to display progress in your application, just like Windows.	Group	1381									
++1316		Video	Installs a number of video clips (.AVI files) which you can use to display progress in your application, just like Windows.	Group	1381									
+ 													
+ 	=== VB Metafiles (vbwmf.etf)===													
+ 1321				Group	1322 1323 1324					%10\Graphics				
+@@ -1651,13 +1651,13 @@
+ 	=== VID Option Component (vid.etf) ===													
+ 													
+ 	STFWIZ	30
+-1751	yes	Microsoft Visual InterDev 6.0	Setup will allow you to customize which components to install	CustomDlg	 1753 1754	VS98Ent.DLL,103			yes	%14				
++1751		Microsoft Visual InterDev 6.0	Setup will allow you to customize which components to install	CustomDlg	 1753 1754	VS98Ent.DLL,103			yes	%14				
+ 1752	yes	Microsoft Visual InterDev 6.0	Setup will allow you to customize which components to install	CustomDlg	 1753 1754	VS98Ent.DLL,103			yes	%14				
+ 													
+ 	STFWIZ	31
+-1753	yes	Client Components	Visual InterDev Client	Group	3431 1759 1761 5031 1756 1757 									
++1753		Client Components	Visual InterDev Client	Group	3431 1759 1761 5031 1756 1757 									
+ 	STFWIZ	32
+-1754	yes	Themes	Installs Themes, predesigned collections of images and style sheets to give your pages a consistent visual design.	CustomDlg	2001 2002 : 1755									
++1754		Themes	Installs Themes, predesigned collections of images and style sheets to give your pages a consistent visual design.	CustomDlg	2001 2002 : 1755									
+ 1755				AddRegData	"LOCAL,""Software\Microsoft\VisualStudio\6.0\Directories"",ThemeDir,%s"					%d\Themes				
+ 													
+ 1756				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual InterDev,ProductDir,%s"									
+@@ -1887,7 +1887,7 @@
+ 													
+ 	=== VI Themes (themes.etf) ===
+ 													
+-2001	yes	Base set	Installs the base set of 15 themes.	Group	2003 2031 2021 2011 2571 2561 2551 2421 2401 2341 2311 2281 2511 2221 2161 2091					%d\Themes		
++2001		Base set	Installs the base set of 15 themes.	Group	2003 2031 2021 2011 2571 2561 2551 2421 2401 2341 2311 2281 2511 2221 2161 2091					%d\Themes		
+ 2002	no	Extended set	Installs the extended set of 42 additional themes.	Group	2003 2004 2005 2006					%d\Themes		
+ 2003				CustomAction	"COMMON98.DLL, NopCAH"					%d				
+ 2004				Group	2541 2531 2521 2501 2491 2481 2471 2461 2451 2441 2431 2411					%d		
+@@ -2236,36 +2236,36 @@
+ 	=== VS Enterprise Edition Component (vsee.etf) ===													
+ 													
+ 	STFWIZ	68												
+-2641	yes	 Enterprise Tools	Installs Enterprise components such as Visual Component Manager, Visual Studio Analyzer, and the Application Performance Explorer.	CustomDlg	 2643 2652 2653 2657 3240 2658 2647 : 5034 3821 2711 3811 2662 3111 3101 3121 6181 6161					%10\Tools			 	
++2641		 Enterprise Tools	Installs Enterprise components such as Visual Component Manager, Visual Studio Analyzer, and the Application Performance Explorer.	CustomDlg	 2643 2652 2653 2657 3240 2658 2647 : 5034 3821 2711 3811 2662 3111 3101 3121 6181 6161					%10\Tools			 	
+ 2642	yes	 Enterprise Tools	Installs Enterprise components such as Visual Component Manager, Visual Studio Analyzer, and the Application Performance Explorer.	CustomDlg	 2643 2652 2653 2657 3240 2658 2647 : 5034 3821 2711 3811 2662 3111 3101 3121 6181 6161					%10\Tools			 	
+ 													
+ 	STFWIZ	72		
+-2643	yes	Application Performance Explorer	Installs Application Performance Explorer.	Group	2644 2959 2645 4581 6961					%d\APE				
++2643		Application Performance Explorer	Installs Application Performance Explorer.	Group	2644 2959 2645 4581 6961					%d\APE				
+ 2644				InstallShared	"APE tagfile, aeexpdtr_exe, ""APE setup tagfile"",,7013"									
+ 2645				Depend	2644 ? 2646   					%D				
+ 2646	yes			Group	2951 2981 2961 2931  									
+ 													
+ 	STFWIZ	69		
+-2647	yes	Visual Studio Analyzer	Installs Visual Studio Analyzer Client.	Group	2648 3041 3021 2649					%d\VS-Ent98\Vanalyzr   				
++2647		Visual Studio Analyzer	Installs Visual Studio Analyzer Client.	Group	2648 3041 3021 2649					%d\VS-Ent98\Vanalyzr   				
+ 2648				InstallShared	"(vsee) VA Client , vavsa_dll, ""Vista setup tagfile"",,7013"					%d				
+ 2649				Depend	2648 ? 2650   					%D				
+ 2650	yes			Group	3031 3011 3001 2991 5021 2651   									
+ 2651		shellShortcut		InstallShortcut	"%6696\%F6696,Visual Studio Analyzer,%2647,,,,"					%47\Microsoft Visual Studio 6.0\Microsoft Visual Studio 6.0 Enterprise Tools				
+ 													
+ 	STFWIZ	73		
+-2652	yes	Repository	Installs Repository, a database containing tool information models.	Group	2671  					%d				
++2652		Repository	Installs Repository, a database containing tool information models.	Group	2671  					%d				
+ 													
+ 	STFWIZ	70		
+-2653	yes	Visual Component Manager	Installs Visual Component Manager.	Group	2654 2655					%d\VCM				
++2653		Visual Component Manager	Installs Visual Component Manager.	Group	2654 2655					%d\VCM				
+ 2654				InstallShared	"(vsee) Visual Component Mgr core, vcmcab_dll, ""VCM setup tagfile"",,7013"					%d				
+ 2655				Depend	2654 ? 2656   					%D				
+ 2656	yes			Group	3171 3161 3131 3141 									
+ 													
+ 	STFWIZ	74		
+-2657	yes	Visual Basic Enterprise Components	Installs Connection Designer and RemAuto Connection Manager 	Group	2691 2721 2761 2771 2741									
++2657		Visual Basic Enterprise Components	Installs Connection Designer and RemAuto Connection Manager 	Group	2691 2721 2761 2771 2741									
+ 													
+ 	STFWIZ	71		
+-2658	yes	Microsoft Visual Modeler	Installs Microsoft Visual Modeler 6.0 files, samples and models.	Group	2659 2811 2660					%D\VS-Ent98\vmodeler  				
++2658		Microsoft Visual Modeler	Installs Microsoft Visual Modeler 6.0 files, samples and models.	Group	2659 2811 2660					%D\VS-Ent98\vmodeler  				
+ 2659				InstallShared	"VM - Core7,msvm_exe, ""VM setup tagfile"",,7013"					%D				
+ 2660				Depend	2659 ? 2661   					%D				
+ 2661				Group	2781  									
+@@ -2847,7 +2847,7 @@
+ 	STFWIZ	15												
+ 3233	Yes	Shared Libraries	Installs the headers, libraries, and debug symbols  for dynamic linkage to the Shared MFC DLLs	Group	4571 4501 4251 4271 4481 4221 4211 4541									
+ 	STFWIZ	17												
+-3234		Shared Libraries for Unicode	Installs the headers, libraries, and debug symbols for dynamic linkage to the Shared Unicode MFC DLLs	Group	4571 4281 4501 4481 4231 4211 4541 4261 4241									
++3234	yes	Shared Libraries for Unicode	Installs the headers, libraries, and debug symbols for dynamic linkage to the Shared Unicode MFC DLLs	Group	4571 4281 4501 4481 4231 4211 4541 4261 4241									
+ 													
+ 	STFWIZ	18												
+ 3235	Yes	Source Code	Installs the Sources to the Static, Shared, and Unicode MFC Libraries	Group	4511 4461 4361 4351 4321 4341 4331 4301 4291 4311 3411									
+@@ -2855,7 +2855,7 @@
+ 	STFWIZ	14												
+ 3236	Yes	Static Libraries	Installs the headers, libraries, and debug symbols  for static linkage to MFC	Group	4571 4251 4271 4501 4481 3401 3391 3361 4541									
+ 	STFWIZ	16												
+-3237		Static Libraries for Unicode	Installs the headers, libraries, and debug symbols  for static linkage to the Unicode version of MFC	Group	4571  4281 4501 4481 3381 3371 3361 4541									
++3237	yes	Static Libraries for Unicode	Installs the headers, libraries, and debug symbols  for static linkage to the Unicode version of MFC	Group	4571  4281 4501 4481 3381 3371 3361 4541									
+ 													
+ 	=== VC Build Tools Components ===													
+ 	STFWIZ	21												
+@@ -2864,7 +2864,7 @@
+ 													
+ 	=== VC Enterprise Feature ===													
+ 	STFWIZ	75												
+-3240	yes	VC++ Enterprise Tools	Installs Enhanced Data Tools support, and support for SQL Debugging	Group	3841 3831 3821 3811 3241					%10\MSDev98				
++3240		VC++ Enterprise Tools	Installs Enhanced Data Tools support, and support for SQL Debugging	Group	3841 3831 3821 3811 3241					%10\MSDev98				
+ 3241				CustomAction	"COMMON98.DLL, NopCAH"					%10\MSDev98\Bin				
+ 3242				Group	5184 5185 5186 5187 5188 5189
+ 											
+@@ -5061,7 +5061,7 @@
+ 	=== VSS Main ETF (VSS.ETF) ===													
+ 													
+ 	STFWIZ	37												
+-4761	yes	Microsoft Visual SourceSafe 6.0	Creates a PRIVATE VSS database (except when upgrading) and installs the VSS software.  Use the VSS SERVER option later in Setup to create a SHARED VSS Server database.	Group	4769 4772 4776 4780 4932 4762 4763 4851				yes	%16				
++4761		Microsoft Visual SourceSafe 6.0	Creates a PRIVATE VSS database (except when upgrading) and installs the VSS software.  Use the VSS SERVER option later in Setup to create a SHARED VSS Server database.	Group	4769 4772 4776 4780 4932 4762 4763 4851				yes	%16				
+ 													
+ 4762				InstallShared	"VSS Client exe, ssexp_exe, ""VSS setup tagfile"",,7013"					%D\win32				
+ 													
+@@ -5393,31 +5393,31 @@
+ 	=== TOOLS.ETF - tools custom option menu structure (tools.etf) ===													
+ 													
+ 	STFWIZ	82												
+-5181	Yes	Tools	Tools such as the Spy++, Win32 SDK and OLE Development tools.	CustomDlg	 5183 5184 5185 5186 5187 6481 5188 5189 					%d				
++5181		Tools	Tools such as the Spy++, Win32 SDK and OLE Development tools.	CustomDlg	 5183 5184 5185 5186 5187 6481 5188 5189 					%d				
+ 													
+ 	STFWIZ	83												
+-5182	yes	Spell Checker	Checks the spelling of your files.	Group	5701					%d				
++5182		Spell Checker	Checks the spelling of your files.	Group	5701					%d				
+ 													
+ 	STFWIZ	88												
+-5183	yes	API Text Viewer	Installs a utility which allows you to quickly locate Windows API Declare statements.	Group	5931					%d\Winapi				
++5183		API Text Viewer	Installs a utility which allows you to quickly locate Windows API Declare statements.	Group	5931					%d\Winapi				
+ 													
+ 	STFWIZ	85												
+-5184	yes	MFC Trace Utilty	Installs a utility application that customizes the kinds of data debug MFC applications emit to the Output Window in the Development Environment.	Group	5921					%d				
++5184		MFC Trace Utilty	Installs a utility application that customizes the kinds of data debug MFC applications emit to the Output Window in the Development Environment.	Group	5921					%d				
+ 													
+ 	STFWIZ	86												
+-5185	yes	Spy++	Installs a utility application that allows you to monitor the types of messages an application recieves.	Group	5901					%d				
++5185		Spy++	Installs a utility application that allows you to monitor the types of messages an application recieves.	Group	5901					%d				
+ 													
+ 	STFWIZ	87												
+-5186	yes	Win32 SDK Tools	Installs an assortment of Win32SDK tools like the OLE Client Test Application, DDE Spy, Process Viewer, etc.	Group	5771 5721					%d				
++5186		Win32 SDK Tools	Installs an assortment of Win32SDK tools like the OLE Client Test Application, DDE Spy, Process Viewer, etc.	Group	5771 5721					%d				
+ 													
+ 	STFWIZ	89												
+-5187	yes	OLE/Com Object Viewer	OLE/Com Object Viewer.	Group	5881					%d				
++5187		OLE/Com Object Viewer	OLE/Com Object Viewer.	Group	5881					%d				
+ 													
+ 	STFWIZ	90												
+-5188	yes	ActiveX Control Test Container	Installs a utility that allows for testing and debugging ActiveX Controls.	Group	5861					%d				
++5188		ActiveX Control Test Container	Installs a utility that allows for testing and debugging ActiveX Controls.	Group	5861					%d				
+ 													
+ 	STFWIZ	91												
+-5189	yes	VC Error Lookup	Installs a lookup utility that displays comments associated with various error return codes, that are located in the Win32 SDK header files.	Group	5841					%d				
++5189		VC Error Lookup	Installs a lookup utility that displays comments associated with various error return codes, that are located in the Win32 SDK header files.	Group	5841					%d				
+ 													
+ 5190				CustomAction 	"COMMON98.DLL, NopCAH"
+ 													
+@@ -6085,11 +6085,11 @@
+ 5972	yes	Data Access	Data Access Components	OptionDlg	5976 5973 5989 5996 5997		Vital							
+ 													
+ 	STFWIZ	49												
+-5973	yes	Microsoft ODBC Drivers	Drivers to data sources via ODBC	OptionDlg	5974 5975 5982 5983 5984 5985 5986 5987 5988									
++5973		Microsoft ODBC Drivers	Drivers to data sources via ODBC	OptionDlg	5974 5975 5982 5983 5984 5985 5986 5987 5988									
+ 	STFWIZ	53												
+-5974	yes	Microsoft SQL Server ODBC Driver	ODBC driver for Microsoft SQL Server databases	Group	6181									
++5974		Microsoft SQL Server ODBC Driver	ODBC driver for Microsoft SQL Server databases	Group	6181									
+ 	STFWIZ	57												
+-5975	yes	Microsoft Oracle ODBC Driver	Microsoft's ODBC driver for Oracle databases	Group	6171									
++5975		Microsoft Oracle ODBC Driver	Microsoft's ODBC driver for Oracle databases	Group	6171									
+ 													
+ 	STFWIZ	42												
+ 5976	yes	ADO, RDS, and OLE DB Providers	ADO (ActiveX Data Objects), RDS (Remote Data Services), and OLE DB data providers.	OptionDlg	5977 5978 5979 5980 5981		Vital							 									
+@@ -6098,15 +6098,15 @@
+ 	STFWIZ	46												
+ 5978	yes	Microsoft OLE DB SQL Server Provider	OLE DB Provider for Microsoft SQL Server databases	Group	6251		Vital							
+ 	STFWIZ	47												
+-5979	yes	Microsoft OLE DB Oracle Provider	Microsoft OLE DB provider for Oracle databases	Group	6231									
++5979		Microsoft OLE DB Oracle Provider	Microsoft OLE DB provider for Oracle databases	Group	6231									
+ 	STFWIZ	48												
+-5980	yes	Microsoft OLE DB Simple Provider (OSP)	Runtime for OSP - build OLE DB providers for simple and tabular data	Group	6221									
++5980		Microsoft OLE DB Simple Provider (OSP)	Runtime for OSP - build OLE DB providers for simple and tabular data	Group	6221									
+ 													
+ 	STFWIZ	45												
+-5981	yes	Microsoft OLE DB JET Provider	Microsoft OLE DB JET Provider	Group	6191									
++5981		Microsoft OLE DB JET Provider	Microsoft OLE DB JET Provider	Group	6191									
+ 													
+ 	STFWIZ	52												
+-5982	yes	Microsoft Access ODBC Driver	Microsoft Access ODBC Driver.	Group	6161									
++5982		Microsoft Access ODBC Driver	Microsoft Access ODBC Driver.	Group	6161									
+ 													
+ 	STFWIZ	50												
+ 5983		Microsoft dBase ODBC Driver	Microsoft ODBC Driver for dBase databases	Group	6141									
+@@ -6115,7 +6115,7 @@
+ 	STFWIZ	51												
+ 5985		Microsoft FoxPro ODBC Driver	Microsoft ODBC Driver for FoxPro databases	Group	6111									
+ 	STFWIZ	58												
+-5986	yes	Microsoft Visual FoxPro ODBC Driver	ODBC driver for Microsoft Visual FoxPro databases	Group	6091									
++5986		Microsoft Visual FoxPro ODBC Driver	ODBC driver for Microsoft Visual FoxPro databases	Group	6091									
+ 	STFWIZ	55												
+ 5987		Microsoft Paradox ODBC Driver	Microsoft's ODBC driver for Paradox databases	Group	6071									
+ 	STFWIZ	54												
