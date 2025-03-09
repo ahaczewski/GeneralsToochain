@@ -1,0 +1,48 @@
+name: Build VC6 Toolchain
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-vc6:
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create the downloads directory
+      run: |
+        mkdir downloads
+
+    - name: Cache downloaded files
+      uses: actions/cache@v4
+      id: cache-downloads
+      with:
+        key: file-downloads-v1-${{ hashFiles('downloads.txt') }}
+        path: |
+          downloads
+
+    - name: Download files
+      if: ${{ steps.cache-downloads.outputs.cache-hit != 'true' }}
+      shell: powershell
+      run: |
+        Get-Content downloads.txt | ForEach-Object {
+          $url = $_
+          $filename = "downloads\" + [System.IO.Path]::GetFileName($url)
+          Invoke-WebRequest -Uri $url -OutFile $filename
+        }
+#    - name: Download Visual Studio 6.0 Enterprise Edition
+#      if: ${{ steps.cache-downloads.outputs.cache-hit != 'true' }}
+#      run: |
+#        curl -L "https://archive.org/download/en_vs6_ent/en_vs6_ent_cd1.iso" -o downloads/en_vs6_ent_cd1.iso
+# https://archive.org/download/dx81b_sdk/DX81b_SDK.exe
+ #       msiexec /i 7z1900-x64.msi /quiet /qn /norestart
+#        key: ''
+
+    # Unpack the ISO file
+   # -
