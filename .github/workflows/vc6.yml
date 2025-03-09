@@ -36,13 +36,24 @@ jobs:
           $filename = "downloads\" + [System.IO.Path]::GetFileName($url)
           Invoke-WebRequest -Uri $url -OutFile $filename
         }
+
+    - name: Extract files
+      run: |
+        python extract.py
+
 #    - name: Download Visual Studio 6.0 Enterprise Edition
 #      if: ${{ steps.cache-downloads.outputs.cache-hit != 'true' }}
 #      run: |
 #        curl -L "https://archive.org/download/en_vs6_ent/en_vs6_ent_cd1.iso" -o downloads/en_vs6_ent_cd1.iso
-# https://archive.org/download/dx81b_sdk/DX81b_SDK.exe
- #       msiexec /i 7z1900-x64.msi /quiet /qn /norestart
-#        key: ''
 
-    # Unpack the ISO file
-   # -
+# https://archive.org/download/dx81b_sdk/DX81b_SDK.exe
+# 7z.exe x DX81b_SDK.exe
+
+# https://archive.org/download/en_vs6_ent/en_vs6_sp6.exe
+# en_vs6_sp6.exe /T:C:\ABS\Path\To\Extraction\Directory /C
+
+
+# ACMSETUP.EXE /T VS98ENT.STF /Q T /K 1111111111 /S C:\Users\Win10\Desktop\VS6CD
+
+# ACMSETUP.EXE /T VS98ENT.STF /Q T /K 1111111111 /S C:\Users\Win10\Desktop\VS6CD
+
