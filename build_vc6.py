@@ -20,6 +20,7 @@ SPEC = [
     ("common/msdev98/bin/mspdb60.dll", 'vc98/bin'),
     ("common/msdev98/bin/msdis110.dll", 'vc98/bin'),
     ("common/msdev98/bin/msobj10.dll", 'vc98/bin'),
+    ("os/system/msvcep.dll", 'vc98/bin'),  # Enterprise version of C2.DLL from SP6
 ]
 
 DIR_CASE = {
@@ -96,14 +97,11 @@ def main():
     # Copy base VS6 files
     copy_files_from_inf(vs98ent, 'extract/VS6CD', output_dir)
 
-    # Copy VCPP5 files
+    # Copy VCPP5 files.
     vcpp5_path = Path('extract/VCPP5')
     bin_dir_path = Path(output_dir) / 'VC98/Bin'
-    copy_file(vcpp5_path / 'c2.dll', bin_dir_path / 'C2.DLL')
-    copy_file(vcpp5_path / 'ml.exe', bin_dir_path / 'ML.EXE')
-    copy_file(vcpp5_path / 'ml.err', bin_dir_path / 'ML.ERR')
-    copy_file(vcpp5_path / 'h2inc.exe', bin_dir_path / 'H2INC.EXE')
-    copy_file(vcpp5_path / 'h2inc.err', bin_dir_path / 'H2INC.EXE')
+    for file in ['ml.exe', 'ml.err', 'h2inc.exe', 'h2inc.err']:
+        copy_file(vcpp5_path / file, bin_dir_path / file.upper())
 
     # Apply SP6
     remove_files_from_inf(sp698ent, 'VC PP Remove Hdr', os.path.join(output_dir, 'VC98/Include'))
@@ -144,7 +142,7 @@ def read_inf_file(file_path):
 
 
 def copy_files_from_inf(config, input_dir, output_dir):
-    print(f"=====================================================  Copying files from {input_dir} to {output_dir}...")
+    print(f"=======================================================  Copying files from {input_dir} to {output_dir}...")
     for section in config.sections():
         for key, value in config.items(section):
             columns = value.split(",")
@@ -165,8 +163,7 @@ def copy_files_from_inf(config, input_dir, output_dir):
 
 
 def remove_files_from_inf(config, section_name, dir_path):
-    print(
-        f"=====================================================  Removing files of section {section_name} from {dir_path}...")
+    print(f"=============================================  Removing files of section {section_name} from {dir_path}...")
     for key, value in config.items(section_name):
         columns = value.split(",")
         if len(columns) != 21:
