@@ -130,13 +130,13 @@ def read_inf_file(file_path):
     with open(file_path, 'r') as file:
         lines = file.readlines()
 
+        # Skip lines that are not valid for INI format, yet are present in the INF files.
         for line in lines:
             if '=' in line or '[' in line:
                 valid_lines.append(line)
             else:
                 invalid_lines.append(line)
 
-    # lines.pop(9)  # Remove the 10th line (index 9) as it breaks ConfigParser, and we don't need it anyway.
     modified_content = ''.join(valid_lines)
     config = ConfigParser(strict=False)
     config.read_string(modified_content, source=file_path)

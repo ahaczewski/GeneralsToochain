@@ -75,3 +75,36 @@ The DirectX SDK is much simpler to create, as it is just a matter of copying fil
 This is handled by the `build_dx.ps1` script.
 Not the whole SDK is needed, only the `Include`, `Lib`, and `License` directories are copied.
 Then `vsa.exe` and `psa.exe` are added to the `Bin` directory, as needed by the C&C Generals build system.
+
+## Extras
+
+The [`vs98ent.stf.patch`](vs98ent.stf.patch) file is a patch for the `VS98ENT.STF` file in the VS6 SETUP directory, and it minimizes the default list of packages installed.
+This is useful if you want to install VS6 IDE to use with the original C&C Generals source code.
+You don't have to apply the patch, as you will be able to choose the packages to install.
+I tried using this patch to install silently, but it didn't work on the GitHub Runner.
+
+**Before running `ACMSETUP.EXE`, set its compatibility mode to Windows XP SP3.**
+
+The way to run the installer without all the checks (IE4, Java older than your mom, etc.) is to run the following command:
+
+```cmd
+cd extract/VS6CD/SETUP
+ACMSETUP.EXE /K 1111111111 /S <ABSOLUTE PATH TO>/VS6CD /T VS98ENT.STF
+```
+
+More information on the `ACMSETUP.EXE` command line options (and STF file format) can be found in the [File Formats wiki](https://fileformats.fandom.com/wiki/Microsoft_ACME_Setup).
+
+On a Windows 10 virtual machine, this command almost finishes the installation, i.e., everything is installed, but the process (ACMSETUP.EXE) hangs at the end spinning a single core.
+The IDE works fine tough.
+You might want to spruce it up with at least [WndTabs](https://www.wndtabs.com/) to make it usable.
+
+To install the required SP6, first you will need to install the Visual C++ Preprocessor Package (VCPP5) and then the SP6.
+The VCPP5 package requires SP5, which is obsoleted by SP6 anyway, but that requirement is hard, otherwise VCPP5 will not even attempt to install.
+To trick the installer that you have SP5, add the following registry key:
+
+```cmd
+REG ADD HKLM\SOFTWARE\Microsoft\VisualStudio\6.0\ServicePacks /v SP5 /t REG_SZ /d "" /f /reg:32
+```
+
+Then you can install the VCPP5 package, and then the SP6.
+**Make sure to use Windows XP SP3 compatibility mode for running setup.**

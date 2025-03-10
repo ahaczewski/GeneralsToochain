@@ -83,23 +83,23 @@ def main():
             print(f"- {file}")
         return 1
 
-    # Step 1: Extract VS6 ISO using the refactored function
+    # Extract VS6 ISO using the refactored function
     if not extract_with_7z("downloads/en_vs6_ent_cd1.iso", "extract/VS6CD"):
         return 1
 
-    # Step 2: Extract DirectX SDK using the same refactored function
+    # Extract DirectX SDK using the same refactored function
     if not extract_with_7z("downloads/DX81b_SDK.exe", "extract"):
         return 1
 
-    # Step 3: Extract VCPP5
+    # Extract VCPP5
     if not extract_from_exe("downloads/vcpp5.exe", "extract/VCPP5"):
         return 1
 
-    # Step 4: Extract VS6 SP6
+    # Extract VS6 SP6
     if not extract_from_exe("downloads/en_vs6_sp6.exe", "extract/VS6SP6/SETUP"):
         return 1
 
-    # Step 5: Extract VS6 SP6 cabinet files
+    # Extract VS6 SP6 cabinet files
     if not extract_with_7z(f"extract/VS6SP6/SETUP/VS6sp61.cab", f"extract/VS6SP6"):
         return 1
 
