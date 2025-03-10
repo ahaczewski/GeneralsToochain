@@ -27,24 +27,22 @@ def extract_with_7z(source_file, output_dir):
         return False
 
 
-def extract_vs6_sp6(output_dir):
-    """Extract the VS6 Service Pack 6 to the build directory"""
-    print("Extracting VS6 Service Pack 6...")
+def extract_from_exe(file_path, output_dir):
+    """Extract the self-extracting archive to the build directory"""
+    print(f"Extracting {file_path}...")
     ensure_directory_exists(output_dir)
 
-    # Get absolute path for the VS6SP6 directory
     abs_path = os.path.abspath(output_dir)
 
     try:
-        subprocess.run(["downloads/en_vs6_sp6.exe", f"/T:{abs_path}", "/C"],
-                       check=True)
-        print("VS6 SP6 extraction completed successfully")
+        subprocess.run([file_path, f"/T:{abs_path}", "/C", "/Q"], env={"__COMPAT_LAYER": "RUNASINVOKER"}, check=True)
+        print(f"{file_path} extraction completed successfully")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"Error extracting VS6 SP6: {e}")
+        print(f"Error extracting {file_path}: {e}")
         return False
     except FileNotFoundError:
-        print("Error: VS6 SP6 installer not found in the downloads directory")
+        print(f"Error: {file_path} installer not found in the downloads directory")
         return False
 
 
@@ -93,13 +91,17 @@ def main():
     if not extract_with_7z("downloads/DX81b_SDK.exe", "extract"):
         return 1
 
-    # Step 3: Extract VS6 SP6 (uses a different extraction method)
-    if not extract_vs6_sp6("extract/VS6SP6"):
+    # Step 3: Extract VCPP5
+    if not extract_from_exe("downloads/vcpp5.exe", "extract/VCPP5"):
         return 1
 
-    # # Step 4: Extract VS6 SP6 cabinet files
-    # if not extract_with_7z(f"extract/VS6SP6/VS6sp61.cab", f"extract/VS6SP6Cab"):
-    #     return 1
+    # Step 4: Extract VS6 SP6
+    if not extract_from_exe("downloads/en_vs6_sp6.exe", "extract/VS6SP6/SETUP"):
+        return 1
+
+    # Step 5: Extract VS6 SP6 cabinet files
+    if not extract_with_7z(f"extract/VS6SP6/SETUP/VS6sp61.cab", f"extract/VS6SP6"):
+        return 1
 
     return 0
 

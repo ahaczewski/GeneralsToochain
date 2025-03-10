@@ -1,3 +1,4 @@
 https://archive.org/download/en_vs6_ent/en_vs6_ent_cd1.iso
+https://archive.org/download/en_vs6_ent/vcpp5.exe
 https://archive.org/download/en_vs6_ent/en_vs6_sp6.exe
 https://archive.org/download/dx81b_sdk/DX81b_SDK.exe
