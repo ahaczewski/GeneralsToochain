@@ -50,17 +50,12 @@ def generate_def_file(dll_path):
     # Create base name for output files
     base_name = os.path.splitext(os.path.basename(dll_path))[0]
     def_path = f"{base_name}.def"
-    dump_path = f"{base_name}.txt"
 
     # Write the .def file
     with open(def_path, 'w') as def_file:
         def_file.write("EXPORTS\n")
         for name in function_names:
             def_file.write(f"    {name[1]}\n")
-
-    # Write the .dump file
-    with open(dump_path, 'w') as def_file:
-        def_file.write(dumpbin_output)
 
     return def_path
 
