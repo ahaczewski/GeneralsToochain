@@ -1,5 +1,5 @@
 --- extract/VS6CD/SETUP/VS98ENT.STF.orig	1998-06-27 02:54:00.000000000 +0200
-+++ extract/VS6CD/SETUP/VS98ENT.STF	2025-03-09 20:49:50.100298400 +0100
++++ extract/VS6CD/SETUP/VS98ENT.STF	2025-03-10 22:44:08.092805200 +0100
 @@ -495,25 +495,25 @@
  	=== Top most VFP specific ETF file (vfp.etf) ===													
  													
@@ -8,7 +8,8 @@
 +481		Microsoft Visual FoxPro 6.0	Setup will allow you to customize which components to install	CustomDlg	483 484 486 485 5182  :  490	VS98Ent.DLL,103			yes	%13				
  482	yes	Microsoft Visual FoxPro 6.0	Setup will allow you to customize which components to install	CustomDlg	483 484 486 485 5182 : 490	VS98Ent.DLL,103			yes	%13				
  	STFWIZ	23												
- 483	yes	Microsoft Visual FoxPro	The Visual FoxPro executable(VFP6.EXE) and related/required system files.	Group	500		vital							
+-483	yes	Microsoft Visual FoxPro	The Visual FoxPro executable(VFP6.EXE) and related/required system files.	Group	500		vital							
++483		Microsoft Visual FoxPro	The Visual FoxPro executable(VFP6.EXE) and related/required system files.	Group	500		vital							
  													
  	STFWIZ	24												
 -484	yes	Wizards and Builders	Tools that assist you in creating objects and completing tasks.	Group	501									
@@ -42,7 +43,8 @@
  1032	yes	Microsoft Visual Basic 6.0	Installs Microsoft Visual Basic and all required components, including core ActiveX controls.	CustomDlg	1034 1038 1039 1040				yes	%11				
  													
  	STFWIZ	40												
- 1033	yes	ActiveX	Installs additional ActiveX controls.	Group	1451 5521 6376 3431 5581 1521					%M				
+-1033	yes	ActiveX	Installs additional ActiveX controls.	Group	1451 5521 6376 3431 5581 1521					%M				
++1033		ActiveX	Installs additional ActiveX controls.	Group	1451 5521 6376 3431 5581 1521					%M				
  	STFWIZ	4												
 -1034	yes	Microsoft Visual Basic Core Files	Installs the core Visual Basic files and core ActiveX controls.	Group	1035 1036 1037					%d				
 +1034		Microsoft Visual Basic Core Files	Installs the core Visual Basic files and core ActiveX controls.	Group	1035 1036 1037					%d				
@@ -101,28 +103,18 @@
  1755				AddRegData	"LOCAL,""Software\Microsoft\VisualStudio\6.0\Directories"",ThemeDir,%s"					%d\Themes				
  													
  1756				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual InterDev,ProductDir,%s"									
-@@ -1887,7 +1887,7 @@
+@@ -1887,8 +1887,8 @@
  													
  	=== VI Themes (themes.etf) ===
  													
 -2001	yes	Base set	Installs the base set of 15 themes.	Group	2003 2031 2021 2011 2571 2561 2551 2421 2401 2341 2311 2281 2511 2221 2161 2091					%d\Themes		
+-2002	no	Extended set	Installs the extended set of 42 additional themes.	Group	2003 2004 2005 2006					%d\Themes		
 +2001		Base set	Installs the base set of 15 themes.	Group	2003 2031 2021 2011 2571 2561 2551 2421 2401 2341 2311 2281 2511 2221 2161 2091					%d\Themes		
- 2002	no	Extended set	Installs the extended set of 42 additional themes.	Group	2003 2004 2005 2006					%d\Themes		
++2002		Extended set	Installs the extended set of 42 additional themes.	Group	2003 2004 2005 2006					%d\Themes		
  2003				CustomAction	"COMMON98.DLL, NopCAH"					%d				
  2004				Group	2541 2531 2521 2501 2491 2481 2471 2461 2451 2441 2431 2411					%d		
-@@ -2236,36 +2236,36 @@
- 	=== VS Enterprise Edition Component (vsee.etf) ===													
- 													
- 	STFWIZ	68												
--2641	yes	 Enterprise Tools	Installs Enterprise components such as Visual Component Manager, Visual Studio Analyzer, and the Application Performance Explorer.	CustomDlg	 2643 2652 2653 2657 3240 2658 2647 : 5034 3821 2711 3811 2662 3111 3101 3121 6181 6161					%10\Tools			 	
-+2641		 Enterprise Tools	Installs Enterprise components such as Visual Component Manager, Visual Studio Analyzer, and the Application Performance Explorer.	CustomDlg	 2643 2652 2653 2657 3240 2658 2647 : 5034 3821 2711 3811 2662 3111 3101 3121 6181 6161					%10\Tools			 	
- 2642	yes	 Enterprise Tools	Installs Enterprise components such as Visual Component Manager, Visual Studio Analyzer, and the Application Performance Explorer.	CustomDlg	 2643 2652 2653 2657 3240 2658 2647 : 5034 3821 2711 3811 2662 3111 3101 3121 6181 6161					%10\Tools			 	
- 													
- 	STFWIZ	72		
--2643	yes	Application Performance Explorer	Installs Application Performance Explorer.	Group	2644 2959 2645 4581 6961					%d\APE				
-+2643		Application Performance Explorer	Installs Application Performance Explorer.	Group	2644 2959 2645 4581 6961					%d\APE				
- 2644				InstallShared	"APE tagfile, aeexpdtr_exe, ""APE setup tagfile"",,7013"									
- 2645				Depend	2644 ? 2646   					%D				
+ 2005				Group	2391 2381 2371 2361 2351 2331 2321 2301 2291 2271 2261 2251 2241 2231					%d		
+@@ -2246,7 +2246,7 @@
  2646	yes			Group	2951 2981 2961 2931  									
  													
  	STFWIZ	69		
@@ -131,17 +123,7 @@
  2648				InstallShared	"(vsee) VA Client , vavsa_dll, ""Vista setup tagfile"",,7013"					%d				
  2649				Depend	2648 ? 2650   					%D				
  2650	yes			Group	3031 3011 3001 2991 5021 2651   									
- 2651		shellShortcut		InstallShortcut	"%6696\%F6696,Visual Studio Analyzer,%2647,,,,"					%47\Microsoft Visual Studio 6.0\Microsoft Visual Studio 6.0 Enterprise Tools				
- 													
- 	STFWIZ	73		
--2652	yes	Repository	Installs Repository, a database containing tool information models.	Group	2671  					%d				
-+2652		Repository	Installs Repository, a database containing tool information models.	Group	2671  					%d				
- 													
- 	STFWIZ	70		
--2653	yes	Visual Component Manager	Installs Visual Component Manager.	Group	2654 2655					%d\VCM				
-+2653		Visual Component Manager	Installs Visual Component Manager.	Group	2654 2655					%d\VCM				
- 2654				InstallShared	"(vsee) Visual Component Mgr core, vcmcab_dll, ""VCM setup tagfile"",,7013"					%d				
- 2655				Depend	2654 ? 2656   					%D				
+@@ -2262,7 +2262,7 @@
  2656	yes			Group	3171 3161 3131 3141 									
  													
  	STFWIZ	74		
@@ -149,12 +131,23 @@
 +2657		Visual Basic Enterprise Components	Installs Connection Designer and RemAuto Connection Manager 	Group	2691 2721 2761 2771 2741									
  													
  	STFWIZ	71		
--2658	yes	Microsoft Visual Modeler	Installs Microsoft Visual Modeler 6.0 files, samples and models.	Group	2659 2811 2660					%D\VS-Ent98\vmodeler  				
-+2658		Microsoft Visual Modeler	Installs Microsoft Visual Modeler 6.0 files, samples and models.	Group	2659 2811 2660					%D\VS-Ent98\vmodeler  				
- 2659				InstallShared	"VM - Core7,msvm_exe, ""VM setup tagfile"",,7013"					%D				
- 2660				Depend	2659 ? 2661   					%D				
- 2661				Group	2781  									
-@@ -2847,7 +2847,7 @@
+ 2658	yes	Microsoft Visual Modeler	Installs Microsoft Visual Modeler 6.0 files, samples and models.	Group	2659 2811 2660					%D\VS-Ent98\vmodeler  				
+@@ -2817,7 +2817,7 @@
+ 3218				CustomAction	"COMMON98.DLL, NopCAH"					%D\Lib				
+ 													
+ 	STFWIZ	11												
+-3219		CRT Source Code	Installs VC++ CRT Source Code Files	Group	3220 4161 4111 4061 4051 4041 4031 4021 4011 4001					%D				
++3219	yes	CRT Source Code	Installs VC++ CRT Source Code Files	Group	3220 4161 4111 4061 4051 4041 4031 4021 4011 4001					%D				
+ 3220				CustomAction	"COMMON98.DLL, NopCAH"					%D\CRT\SRC				
+ 	STFWIZ	9												
+ 3221	Yes	Shared CRT Libraries	Installs VC++ Shared CRT Library Files	Group	4171 4151 4131 4101 3971 3222					%D				
+@@ -2842,12 +2842,12 @@
+ 													
+ 3231				Group	4441 4431 4471 4421 4411 4401 4391 4381 4371 3236 3233 3235 4201					%3213 																							
+ 	STFWIZ	19												
+-3232		Browser Database	Installs the MFC.BSC Browser database, which allows for easy browsing of the MFC source files	Group	4491									
++3232	yes	Browser Database	Installs the MFC.BSC Browser database, which allows for easy browsing of the MFC source files	Group	4491									
+ 													
  	STFWIZ	15												
  3233	Yes	Shared Libraries	Installs the headers, libraries, and debug symbols  for dynamic linkage to the Shared MFC DLLs	Group	4571 4501 4251 4271 4481 4221 4211 4541									
  	STFWIZ	17												
@@ -172,15 +165,6 @@
  													
  	=== VC Build Tools Components ===													
  	STFWIZ	21												
-@@ -2864,7 +2864,7 @@
- 													
- 	=== VC Enterprise Feature ===													
- 	STFWIZ	75												
--3240	yes	VC++ Enterprise Tools	Installs Enhanced Data Tools support, and support for SQL Debugging	Group	3841 3831 3821 3811 3241					%10\MSDev98				
-+3240		VC++ Enterprise Tools	Installs Enhanced Data Tools support, and support for SQL Debugging	Group	3841 3831 3821 3811 3241					%10\MSDev98				
- 3241				CustomAction	"COMMON98.DLL, NopCAH"					%10\MSDev98\Bin				
- 3242				Group	5184 5185 5186 5187 5188 5189
- 											
 @@ -5061,7 +5061,7 @@
  	=== VSS Main ETF (VSS.ETF) ===													
  													
@@ -190,49 +174,30 @@
  													
  4762				InstallShared	"VSS Client exe, ssexp_exe, ""VSS setup tagfile"",,7013"					%D\win32				
  													
-@@ -5393,31 +5393,31 @@
- 	=== TOOLS.ETF - tools custom option menu structure (tools.etf) ===													
- 													
- 	STFWIZ	82												
--5181	Yes	Tools	Tools such as the Spy++, Win32 SDK and OLE Development tools.	CustomDlg	 5183 5184 5185 5186 5187 6481 5188 5189 					%d				
-+5181		Tools	Tools such as the Spy++, Win32 SDK and OLE Development tools.	CustomDlg	 5183 5184 5185 5186 5187 6481 5188 5189 					%d				
+@@ -5396,7 +5396,7 @@
+ 5181	Yes	Tools	Tools such as the Spy++, Win32 SDK and OLE Development tools.	CustomDlg	 5183 5184 5185 5186 5187 6481 5188 5189 					%d				
  													
  	STFWIZ	83												
 -5182	yes	Spell Checker	Checks the spelling of your files.	Group	5701					%d				
 +5182		Spell Checker	Checks the spelling of your files.	Group	5701					%d				
  													
  	STFWIZ	88												
--5183	yes	API Text Viewer	Installs a utility which allows you to quickly locate Windows API Declare statements.	Group	5931					%d\Winapi				
-+5183		API Text Viewer	Installs a utility which allows you to quickly locate Windows API Declare statements.	Group	5931					%d\Winapi				
- 													
- 	STFWIZ	85												
--5184	yes	MFC Trace Utilty	Installs a utility application that customizes the kinds of data debug MFC applications emit to the Output Window in the Development Environment.	Group	5921					%d				
-+5184		MFC Trace Utilty	Installs a utility application that customizes the kinds of data debug MFC applications emit to the Output Window in the Development Environment.	Group	5921					%d				
- 													
- 	STFWIZ	86												
--5185	yes	Spy++	Installs a utility application that allows you to monitor the types of messages an application recieves.	Group	5901					%d				
-+5185		Spy++	Installs a utility application that allows you to monitor the types of messages an application recieves.	Group	5901					%d				
- 													
- 	STFWIZ	87												
--5186	yes	Win32 SDK Tools	Installs an assortment of Win32SDK tools like the OLE Client Test Application, DDE Spy, Process Viewer, etc.	Group	5771 5721					%d				
-+5186		Win32 SDK Tools	Installs an assortment of Win32SDK tools like the OLE Client Test Application, DDE Spy, Process Viewer, etc.	Group	5771 5721					%d				
- 													
- 	STFWIZ	89												
--5187	yes	OLE/Com Object Viewer	OLE/Com Object Viewer.	Group	5881					%d				
-+5187		OLE/Com Object Viewer	OLE/Com Object Viewer.	Group	5881					%d				
+ 5183	yes	API Text Viewer	Installs a utility which allows you to quickly locate Windows API Declare statements.	Group	5931					%d\Winapi				
+@@ -5414,7 +5414,7 @@
+ 5187	yes	OLE/Com Object Viewer	OLE/Com Object Viewer.	Group	5881					%d				
  													
  	STFWIZ	90												
 -5188	yes	ActiveX Control Test Container	Installs a utility that allows for testing and debugging ActiveX Controls.	Group	5861					%d				
 +5188		ActiveX Control Test Container	Installs a utility that allows for testing and debugging ActiveX Controls.	Group	5861					%d				
  													
  	STFWIZ	91												
--5189	yes	VC Error Lookup	Installs a lookup utility that displays comments associated with various error return codes, that are located in the Win32 SDK header files.	Group	5841					%d				
-+5189		VC Error Lookup	Installs a lookup utility that displays comments associated with various error return codes, that are located in the Win32 SDK header files.	Group	5841					%d				
+ 5189	yes	VC Error Lookup	Installs a lookup utility that displays comments associated with various error return codes, that are located in the Win32 SDK header files.	Group	5841					%d				
+@@ -6082,31 +6082,31 @@
  													
- 5190				CustomAction 	"COMMON98.DLL, NopCAH"
- 													
-@@ -6085,11 +6085,11 @@
- 5972	yes	Data Access	Data Access Components	OptionDlg	5976 5973 5989 5996 5997		Vital							
+ 	==**== VS (da.etf) ==**== 													
+ 	STFWIZ	41												
+-5972	yes	Data Access	Data Access Components	OptionDlg	5976 5973 5989 5996 5997		Vital							
++5972		Data Access	Data Access Components	OptionDlg	5976 5973 5989 5996 5997		Vital							
  													
  	STFWIZ	49												
 -5973	yes	Microsoft ODBC Drivers	Drivers to data sources via ODBC	OptionDlg	5974 5975 5982 5983 5984 5985 5986 5987 5988									
@@ -245,10 +210,14 @@
 +5975		Microsoft Oracle ODBC Driver	Microsoft's ODBC driver for Oracle databases	Group	6171									
  													
  	STFWIZ	42												
- 5976	yes	ADO, RDS, and OLE DB Providers	ADO (ActiveX Data Objects), RDS (Remote Data Services), and OLE DB data providers.	OptionDlg	5977 5978 5979 5980 5981		Vital							 									
-@@ -6098,15 +6098,15 @@
+-5976	yes	ADO, RDS, and OLE DB Providers	ADO (ActiveX Data Objects), RDS (Remote Data Services), and OLE DB data providers.	OptionDlg	5977 5978 5979 5980 5981		Vital							 									
++5976		ADO, RDS, and OLE DB Providers	ADO (ActiveX Data Objects), RDS (Remote Data Services), and OLE DB data providers.	OptionDlg	5977 5978 5979 5980 5981		Vital							 									
+ 	STFWIZ	43												
+-5977	yes	ADO and RDS	ActiveX Data Objects (ADO) and Remote Data Service (RDS) for easy access to data from Visual Basic and the Web	Group	6201 6261		Vital							 									
++5977		ADO and RDS	ActiveX Data Objects (ADO) and Remote Data Service (RDS) for easy access to data from Visual Basic and the Web	Group	6201 6261		Vital							 									
  	STFWIZ	46												
- 5978	yes	Microsoft OLE DB SQL Server Provider	OLE DB Provider for Microsoft SQL Server databases	Group	6251		Vital							
+-5978	yes	Microsoft OLE DB SQL Server Provider	OLE DB Provider for Microsoft SQL Server databases	Group	6251		Vital							
++5978		Microsoft OLE DB SQL Server Provider	OLE DB Provider for Microsoft SQL Server databases	Group	6251		Vital							
  	STFWIZ	47												
 -5979	yes	Microsoft OLE DB Oracle Provider	Microsoft OLE DB provider for Oracle databases	Group	6231									
 +5979		Microsoft OLE DB Oracle Provider	Microsoft OLE DB provider for Oracle databases	Group	6231									
@@ -275,3 +244,27 @@
  	STFWIZ	55												
  5987		Microsoft Paradox ODBC Driver	Microsoft's ODBC driver for Paradox databases	Group	6071									
  	STFWIZ	54												
+@@ -6137,10 +6137,10 @@
+ 5995		Jet IISAM XBase Driver	Microsoft Jet IISAM driver for XBase databases	Group	6151									
+ 													
+ 	STFWIZ	66												
+-5996	yes	Remote Data Objects and Controls	Remote Data Objects and Controls for Microsoft Visual Basic	Group	6001		Vital							
++5996		Remote Data Objects and Controls	Remote Data Objects and Controls for Microsoft Visual Basic	Group	6001		Vital							
+ 													
+ 	STFWIZ	67												
+-5997	yes	Data Environment	Added functionality and grid control allow you to easily set up data	Group	6301 6321 6323		Vital							
++5997		Data Environment	Added functionality and grid control allow you to easily set up data	Group	6301 6321 6323		Vital							
+ 														
+ 5998				CustomAction 	"COMMON98.DLL, NopCAH"
+ 													
+--- extract/VS6CD/SETUPWIZ.INI.orig	1998-06-16 02:01:31.000000000 +0200
++++ extract/VS6CD/SETUPWIZ.INI	2025-03-13 20:35:58.310661800 +0100
+@@ -18,7 +18,7 @@
+ IeUrl = http://www.microsoft.com/ie/ie40/download/
+ UsrUrl = http://msdn.microsoft.com/vstudio/register/default.htm
+ RegUrl = http://www.microsoft.com/isapi/redir.dll?Prd=vstudio&Pver=98&Ar=register
+-VmPath=ie4\msjavx86.exe
++VmPath=
+ 
+ [clients]
+ client1 = InstallShield,ishield\setup.exe,vs98ecd1.inf,0,1,InstallShield_Win,

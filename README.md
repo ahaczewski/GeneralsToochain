@@ -78,33 +78,83 @@ Then `vsa.exe` and `psa.exe` are added to the `Bin` directory, as needed by the 
 
 ## Extras
 
-The [`vs98ent.stf.patch`](vs98ent.stf.patch) file is a patch for the `VS98ENT.STF` file in the VS6 SETUP directory, and it minimizes the default list of packages installed.
-This is useful if you want to install VS6 IDE to use with the original C&C Generals source code.
-You don't have to apply the patch, as you will be able to choose the packages to install.
-I tried using this patch to install silently, but it didn't work on the GitHub Runner.
+### Creating .lib files for .dll files
 
-**Before running `ACMSETUP.EXE`, set its compatibility mode to Windows XP SP3.**
+The repository contains a Python script `create_lib.py` that can be used to create `.lib` files for `.dll` files.
 
-The way to run the installer without all the checks (IE4, Java older than your mom, etc.) is to run the following command:
+C&C Generals uses Miles Sound System and Bink proprietary libraries, that were not open sourced.
+To use them for linking, you need to create `.lib` files for them.
 
-```cmd
-cd extract/VS6CD/SETUP
-ACMSETUP.EXE /K 1111111111 /S <ABSOLUTE PATH TO>/VS6CD /T VS98ENT.STF
-```
-
-More information on the `ACMSETUP.EXE` command line options (and STF file format) can be found in the [File Formats wiki](https://fileformats.fandom.com/wiki/Microsoft_ACME_Setup).
-
-On a Windows 10 virtual machine, this command almost finishes the installation, i.e., everything is installed, but the process (ACMSETUP.EXE) hangs at the end spinning a single core.
-The IDE works fine tough.
-You might want to spruce it up with at least [WndTabs](https://www.wndtabs.com/) to make it usable.
-
-To install the required SP6, first you will need to install the Visual C++ Preprocessor Package (VCPP5) and then the SP6.
-The VCPP5 package requires SP5, which is obsoleted by SP6 anyway, but that requirement is hard, otherwise VCPP5 will not even attempt to install.
-To trick the installer that you have SP5, add the following registry key:
+The script takes a `.dll` file and creates a `.lib` file for it, using the `dumpbin.exe` tool from the Visual Studio 6 toolchain.
+The script is used as follows:
 
 ```cmd
-REG ADD HKLM\SOFTWARE\Microsoft\VisualStudio\6.0\ServicePacks /v SP5 /t REG_SZ /d "" /f /reg:32
+<PATH_TO_VC6>\VC98\Bin\VCVARS32.BAT
+python create_lib.py <PATH_TO_DLL>
 ```
 
-Then you can install the VCPP5 package, and then the SP6.
-**Make sure to use Windows XP SP3 compatibility mode for running setup.**
+### Installing Visual Studio 6 on Windows 11
+
+To install Visual Studio 6 on Windows 11, you will need to perform a few steps to bypass the installer check for JavaVM from nineties,
+and strip down the installed packages to the ones that will actually install.
+
+The steps are as follows:
+
+1. Apply patch to the `VS98ENT.STF` and `SETUPWIZ.INI` files in the `extract/VS6CD/SETUP` directory.
+2. Set compatibility mode for `SETUP.EXE` to Windows XP SP3.
+3. Run the installer.
+4. Apply 
+
+#### Applying the patch
+
+The [`vs6-setup.patch`](vs6-setup.patch) file is a patch for `VS98ENT.STF` and `SETUPWIZ.INI` files in the VS6 SETUP directory,
+that makes it possible to install it on a modern Windows 11 system.
+Apply the patch with the usual `patch` command:
+
+```cmd
+patch -p0 < vs6-setup.patch
+```
+
+#### Running the installer
+
+**Before running `SETUP.EXE`, set its compatibility mode to Windows XP SP3.**
+
+Once compatibility mode is set, you can run the installer.
+Do not select any additional components when asked, as the installer will fail.
+
+The installer will restart Windows after installing Visual Studio 6.0 and will give you an option to install MSDN.
+I choose not to, but it should work fine.
+
+### (Optional) Installing Processor Pack
+
+The Processor Pack is a package that adds support for the SSE instructions to the compiler,
+and requires Service Pack 5 to be installed.
+
+Because Service Pack 6 will remove the support anyway, it might seem useless to install the Processor Pack...
+If not for the fact, that SP6 removes the header files, but leaves MASM and H2INC binaries in place.
+So installing the Processor Pack is a way of getting the ML.EXE and H2INC.EXE binaries, if you wish to play with the old assembler.
+
+As mentioned, the VCPP5 package requires SP5 to be installed, but we can trick the installer into thinking that SP5 is installed.
+To do so, import the [`SP5_Add.reg`](SP5_Add.reg) file to your registry, once you have installed the Visual Studio 6.0.
+
+Install the VCPP5 package, and then import the [`SP5_Remove.reg`](SP5_Remove.reg) file to remove the SP5 information from your registry.
+
+> **Note:** The VCPP5 package is removed by SP6 installer because by that time there was already Visual Studio .NET 2002 available which Microsoft directed VCPP5 users to,
+> and which included extended support for SSE instructions.
+
+### Installing Service Pack 6
+
+To install Service Pack 6, run the `en_vs6_sp6.exe`, it is self-extracting archive, and extract the contents to some directory.
+
+The usual installer of SP6 (`setupsp6.exe`) fails on Windows 11, but it is pretty easy to bypass.
+To do so, you need to run `acmsetup.exe` instead.
+
+First, make sure to set the compatibility mode for `acmsetup.exe` to Windows XP SP3.
+Then run the `acmsetup.exe` with the following command line:
+
+```cmd
+cd <PATH TO THE EXTRACTED SP6>
+acmsetup.exe /S <ABSOLUTE PATH TO THE EXTRACTED SP6> /T sp698ent.stf
+```
+
+That will skip all the failing checks and install the Service Pack 6.
