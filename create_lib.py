@@ -2,7 +2,6 @@ import sys
 import os
 import subprocess
 import re
-import tempfile
 
 
 def generate_def_file(dll_path):
